@@ -1,0 +1,32 @@
+{
+    function sort(arr) {
+        arr.sort((a,b) => {
+            return b.value-a.value;
+        })
+        return arr;
+    }
+
+    function checkFreq(arr) {
+        let freq = {}, result = [], output = [];
+
+        for(let i=0;i<arr.length;i++) {
+            if(!freq[arr[i]]) {
+                freq[arr[i]] = 1;
+            } else {
+                freq[arr[i]] +=1;
+            }
+        }
+
+        for(key in freq) {
+            result.push({key:key,value:freq[key]});
+        }
+
+        result = sort(result);
+        for(item of result) {
+            for(let i=0;i<item.value;i++) {
+                console.log(parseInt(item.key));
+            }
+        }
+    }
+    checkFreq([2,5,2,6,-1,999999,5,8,8,8])
+}

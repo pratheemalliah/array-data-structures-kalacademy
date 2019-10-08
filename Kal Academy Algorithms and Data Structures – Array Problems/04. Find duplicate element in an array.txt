@@ -1,0 +1,13 @@
+{
+ function findDuplicate(arr) {
+       if(arr.length==0) return undefined;
+       let range = arr[arr.length-1],sumOfArr = 0;
+       for(i=0;i<=arr.length-1;i++) {
+           sumOfArr+=arr[i];
+       }
+       let sumOfNumInRange = range*(range+1)/2;
+       return sumOfArr - sumOfNumInRange;
+   }
+
+   findDuplicate([1,2,3,4,4,5,6,7]);
+}

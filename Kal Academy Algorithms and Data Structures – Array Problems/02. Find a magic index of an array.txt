@@ -1,0 +1,36 @@
+//Array Elements are Distinct
+
+{
+    function findMagicIndex(arr,low=0,high=arr.length-1) {
+        let mid = Math.floor((low+high)/2);
+
+        if(low<=high){
+            if(mid === arr[mid]) return mid;
+            if(mid > arr[mid]) {
+                return findMagicIndex(arr, mid+1,high);
+            }else if(mid <arr[mid]) {
+                return findMagicIndex(arr,low,mid-1);
+            }
+        }
+        return -1;
+    }
+    findMagicIndex([-1,0,2,2,3,5,7,8,9]);
+}
+
+//Array Elements are not Distinct
+
+{
+    function findMagicIndex(arr,low=0,high=arr.length-1) {
+        let magicIdx, mid = Math.floor((low+high)/2);
+
+        if(low<=high){
+            if(mid === arr[mid]) return mid;  
+            magicIdx = findMagicIndex(arr, mid+1,high);
+            if(!magicIdx) {
+                magicIdx = findMagicIndex(arr,low,mid-1);
+            }
+        }
+        return magicIdx;
+    }
+    findMagicIndex([ 1, 3, 3, 3, 5, 7, 8, 9, 9, 11]);
+}

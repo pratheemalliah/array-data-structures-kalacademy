@@ -1,0 +1,17 @@
+{
+    function findEquilibriumIndex(arr) {
+         let rightSum = arr.reduce(function(i,s=0){
+             return s+=i;
+         });
+         let leftSum = 0;
+
+         for(let i=0;i<arr.length;i++){
+             rightSum -=arr[i];
+             if(rightSum == leftSum) return i;
+             leftSum +=arr[i];
+         }
+         return -1;
+    }
+
+    findEquilibriumIndex([-7, 1, 5, 2, -4, 3, 0])
+}

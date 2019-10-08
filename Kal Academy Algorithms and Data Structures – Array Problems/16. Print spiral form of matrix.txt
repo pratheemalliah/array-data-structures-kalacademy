@@ -1,0 +1,70 @@
+{
+    function printSpiralMatrix(matrix) {
+        if (matrix.length <= 0 || matrix[0].length <= 0) return "Empty Matrix!!!"
+        let result = [],
+            k = 0,
+            i = 0,
+            j = 0,
+            tb = 0,
+            rb = matrix[0].length - 1,
+            lb = 0,
+            bb = matrix.length - 1,
+            side = 'T';
+        let totalItems = matrix.length * matrix[0].length;
+
+        while (k < totalItems) {
+            switch (side) {
+                case 'T':
+                    if (j == rb) {
+                        tb++;
+                        side = 'R';
+                    } else {
+                        result.push(matrix[i][j++]);
+                        k++;
+                    }
+
+                    break;
+                case 'R':
+                    if (i == bb) {
+                        rb--;
+                        side = 'B';
+                    } else {
+                        result.push(matrix[i++][j]);
+                        k++;
+                    }
+
+                    break;
+                case 'B':
+                    if (j == lb) {
+                        bb--;
+                        side = 'L';
+                    } else {
+                        result.push(matrix[i][j--]);
+                        k++;
+                    }
+
+                    break;
+                case 'L':
+                    if (i == tb) {
+                        lb++;
+                        side = 'T';
+                    } else {
+                        result.push(matrix[i--][j]);
+                        k++;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+        }
+        return result;
+    }
+    let M = [
+        [1, 2, 3, 11],
+        [4, 5, 6, 51],
+        [7, 8, 9, 77],
+        [0, 8, 4, 3]
+    ]
+    console.log(printSpiralMatrix(M));
+}

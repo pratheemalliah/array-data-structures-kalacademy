@@ -1,0 +1,17 @@
+{
+    function sort(arr) {
+      arr.sort((a,b)=>{
+        return b-a;
+      })
+      return arr;
+    }
+
+    function findKthSmallest(arr,k) {
+       if(k>=arr.length) return "K is greater than array length";  
+       arr = sort(arr);  
+       //console.log(arr);
+       return arr[k-1];   
+    }
+
+    findKthSmallest([7, 10, 4, 3, 20, 15],4);
+}

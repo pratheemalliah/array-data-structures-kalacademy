@@ -1,0 +1,18 @@
+{
+  function joinArrays(arr1,arr2) {
+  let arr1Len = arr1.length,
+      arr2Len = arr2.length;
+
+      for(let k=(arr1Len+arr2Len)-1,i=arr1Len-1,j=arr2Len-1;k>=0;k--) {
+          if(arr2[j]<arr1[i]) {
+              arr1[k] = arr1[i--];
+          } else {
+              arr1[k] = arr2[j--];
+          }
+      }  
+
+      return arr1;
+  }
+
+  joinArrays([-9,1,15,20,30,35],[-7,1,10]);
+}

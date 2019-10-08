@@ -1,0 +1,19 @@
+{
+    function subArrayMatchingSum(arr,sum) {
+        if(arr.length<=0 || sum<=0 ) return "No subarray found";
+        sumOfSubArray = arr[0],start=0,end=0;
+        while(end<=arr.length-1) {           
+            if(sum < sumOfSubArray) {
+                sumOfSubArray-=arr[start++];
+             } else if(sum > sumOfSubArray) {
+                 sumOfSubArray+=arr[++end]
+            } else if (sum === sumOfSubArray) {
+                 return `Sum ${sum} found between indexes ${start} and ${end}`;
+            }
+        }
+        return "No subarray found";
+
+    }
+
+    subArrayMatchingSum([1, 4, 0, 0, 3, 10, 5],17)
+}

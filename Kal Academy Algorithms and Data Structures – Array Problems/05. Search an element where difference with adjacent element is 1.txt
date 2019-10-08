@@ -1,0 +1,15 @@
+{
+    function findElement(arr,ele) {
+        let i=0;
+        while(i<arr.length) {
+            if(arr[i] === ele) {
+                return i;
+            }
+            i = i + Math.abs(arr[i]-ele);
+
+        }
+        return -1;
+    }
+
+    findElement([8, 7, 6, 7, 6, 5, 4, 3,2, 1],2);
+}

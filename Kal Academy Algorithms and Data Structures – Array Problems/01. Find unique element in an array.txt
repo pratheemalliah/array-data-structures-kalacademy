@@ -1,0 +1,26 @@
+{    
+    function findUnique(arr,low=0,high=arr.length-1) {
+        if (low === high) {
+          return arr[low];
+        }
+
+        var mid = (high + low) / 2;
+
+        if (mid % 2 === 0) {
+          if (arr[mid] ===  arr[mid + 1]) {
+            return findUnique(arr, mid + 2, high);
+          } else {
+            return findUnique(arr, low, mid);
+          }
+        } else {
+          if (arr[mid] === arr[mid - 1]) {
+            return findUnique(arr, mid + 1, high);
+          } else {
+            return findUnique(arr, low, mid - 1);
+          }
+        }
+      }
+
+
+    findUnique([1, 1, 2, 3, 3, 4, 4, 5, 5]);
+}

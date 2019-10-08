@@ -1,0 +1,17 @@
+{
+    function findLargestSum(arr) {
+       let temp=0,sumOfSubArray=0;
+
+       for(let i=0;i<arr.length;i++) {
+           temp+=arr[i];
+           sumOfSubArray = Math.max(sumOfSubArray,temp);
+           if(temp<0) {
+               temp = 0;
+           }
+       }
+       return sumOfSubArray;
+
+    }
+
+    findLargestSum([-1, 2, 3, -9]);
+}
